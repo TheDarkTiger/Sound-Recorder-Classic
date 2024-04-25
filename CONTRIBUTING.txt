@@ -1,0 +1,4 @@
+You can always do a pull request, but don't keep your hope high, I don't have much time.
+Please, don't hesitate to clone or fork it if you want.
+Read the readme.
+No political or out of place comments, it's a programming project, not a "Look I am this or that!" blog.

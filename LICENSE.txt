@@ -1,0 +1,6 @@
+I couldn't find a fitting licence for this project.
+I just want to signify in a more or less square manner that you can read, study, use and modify my code, as long as you say I made the base, share your modifs/forks with the same mentality, and don't make money by selling the base code.
+So, please, use your common sense to respect my will.
+
+If you need something more tengible, the closest license is CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/).
+But it's just an indication, and not a hard statement.
