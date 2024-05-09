@@ -1,0 +1,149 @@
+
+
+lbl_position = LABEL[]("Position:\n0.00 Sec.")
+cnv_wavform = CANVAS[
+	BGCOLOR="0 0 0",
+	DRAWSIZE="112 35",
+	EXPAND=NO,
+	RASTERSIZE=114x37,
+	CANFOCUS=NO
+](NULL)
+lbl_length = LABEL[]("Length:\n0.00 Sec.")
+
+val_position = VAL[
+	MIN=0,
+	MAX=1,
+	VALUE="0.0",
+	RASTERSIZE="234x21"
+]( "HORIZONTAL" )
+
+btnRewind = BUTTON[IMAGE=IUP_MediaGoToBegin,RASTERSIZE="47x24"]("", NULL)
+btnFastforward = BUTTON[IMAGE=IUP_MediaGoToEnd,RASTERSIZE="47x24"]("", NULL)
+btnPlay = BUTTON[IMAGE=IUP_MediaPlay,RASTERSIZE="47x24"]("", NULL)
+btnStop = BUTTON[IMAGE=IUP_MediaStop,RASTERSIZE="47x24"]("", NULL)
+btnRecord = BUTTON[IMAGE=IUP_MediaRecord,RASTERSIZE="47x24"]("", NULL)
+
+# Main dialogue
+dlg = DIALOG[
+	TITLE="Sound - Sound Recorder Classic",
+	RASTERSIZE=276x151,
+	MENU=mnu
+]
+(
+	VBOX[
+		ALIGNMENT=ACENTER,
+		GAP=5,
+		MARGIN=5x3
+		]
+	(
+		HBOX[]
+		(
+			FRAME[
+				SUNKEN=YES,
+				MARGIN=5x3,
+				RASTERSIZE=60x37
+			]
+			(lbl_position),
+			cnv_wavform,
+			FRAME[
+				SUNKEN=YES,
+				MARGIN=5x3,
+				RASTERSIZE=60x37
+			](lbl_length)
+		),
+		val_position,
+		HBOX[ALIGNMENT=ACENTER,MARGIN=0x3]
+		(
+			btnRewind,
+			btnFastforward,
+			btnPlay,
+			btnStop,
+			btnRecord
+		)
+	)
+)
+
+#----------------------------------------------------------------------
+# Top menu
+
+# Menu 'File'
+mnu_file_new = ITEM[]( "New", NULL)
+mnu_file_open = ITEM[]( "Open...", NULL)
+mnu_file_save = ITEM[]( "Save", NULL)
+mnu_file_saveAs = ITEM[]( "Save As...", NULL)
+mnu_file_revert = ITEM[ACTIVE=NO]( "Revert", NULL)
+mnu_file_properties = ITEM[]( "Properties", NULL)
+mnu_file_exit = ITEM[]( "Exit", NULL)
+
+# Menu 'Edit'
+mnu_edit_copy = ITEM[]( "Copy	Ctrl+C", NULL)
+mnu_edit_pasteInsert = ITEM[ACTIVE=NO]( "Paste Insert	Ctrl+V", NULL)
+mnu_edit_pasteMix = ITEM[ACTIVE=NO]( "Paste Mix", NULL)
+mnu_edit_insertFile = ITEM[]("Insert File...", NULL)
+mnu_edit_mixWithFile = ITEM[]("Mix with File...", NULL)
+mnu_edit_deleteBeforeCurrentPos = ITEM[ACTIVE=NO]("Delete Before Current Position", NULL)
+mnu_edit_deleteAfterCurrentPos = ITEM[ACTIVE=NO]("Delete After Current Position", NULL)
+mnu_edit_audioProperties = ITEM[]("Audio Properties", NULL)
+
+# Menu 'Effect'
+mnu_effect_increaseVolume = ITEM[]( "Increase Volume (by 25%)", NULL)
+mnu_effect_decreaseVolume = ITEM[]( "Decrease Volume", NULL)
+mnu_effect_increaseSpeed = ITEM[]( "Increase Speed (by 100%)", NULL)
+mnu_effect_decreaseSpeed = ITEM[]( "Decrease Speed", NULL)
+mnu_effect_addEcho = ITEM[]( "Add Echo", NULL)
+mnu_effect_reverse = ITEM[]( "Reverse", NULL)
+
+# Menu 'Help'
+mnu_help_helpTopics = ITEM[]( "Help Topics", NULL)
+mnu_help_aboutSRC = ITEM[]( "About Sound Recorder Classic", NULL)
+
+# Top menu itself
+mnu = MENU[]
+(
+	SUBMENU[]("&File",
+		MENU[](
+			mnu_file_new,
+			mnu_file_open,
+			mnu_file_save,
+			mnu_file_saveAs,
+			mnu_file_revert,
+			mnu_file_properties,
+			SEPARATOR[](),
+			mnu_file_exit
+		)
+	),
+	SUBMENU[]("&Edit",
+		MENU[](
+			mnu_edit_copy,
+			mnu_edit_pasteInsert,
+			mnu_edit_pasteMix,
+			SEPARATOR[](),
+			mnu_edit_insertFile,
+			mnu_edit_mixWithFile,
+			SEPARATOR[](),
+			mnu_edit_deleteBeforeCurrentPos,
+			mnu_edit_deleteAfterCurrentPos,
+			SEPARATOR[](),
+			mnu_edit_audioProperties
+		)
+	),
+	SUBMENU[]("Effect&s",
+		MENU[](
+			mnu_effect_increaseVolume,
+			mnu_effect_decreaseVolume,
+			SEPARATOR[](),
+			mnu_effect_increaseSpeed,
+			mnu_effect_decreaseSpeed,
+			SEPARATOR[](),
+			mnu_effect_addEcho,
+			mnu_effect_reverse
+		)
+	),
+	SUBMENU[]("&Help",
+		MENU[](
+			mnu_help_helpTopics,
+			SEPARATOR[](),
+			mnu_help_aboutSRC
+		)
+	)
+)

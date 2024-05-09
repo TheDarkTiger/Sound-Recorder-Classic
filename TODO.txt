@@ -1,7 +1,7 @@
 
 
 
-[_]	Use IUP's LED format to describe the GUI
+[-]	Use IUP's LED format to describe the GUI
 [_]	Draw images for the interface
 [_]	Add the remaining interfaces
 [_]	Add WAV playing
